@@ -5,8 +5,7 @@ const input = require("fs")
   .split(/\s+/)
   .map((el) => Number(el));
 
-input.shift();
-const n = input.length;
+const n = input.shift();
 
 for (i = 0; i < n - 1; i++) {
   flag = 0;
@@ -24,3 +23,5 @@ for (i = 0; i < n - 1; i++) {
 }
 
 console.log(i);
+
+//시간초과
