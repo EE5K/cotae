@@ -6,22 +6,16 @@ const input = require("fs")
   .map((el) => Number(el));
 
 const n = input.shift();
+const arr = input.map((value, idx) => ({ value, idx }));
+arr.sort((a, b) => a.value - b.value);
 
-for (i = 0; i < n - 1; i++) {
-  flag = 0;
-  for (j = 0; j < n - i - 1; j++) {
-    if (input[j] > input[j + 1]) {
-      flag = 1;
-      temp = input[j];
-      input[j] = input[j + 1];
-      input[j + 1] = temp;
-    }
-  }
-  if (flag == 0) {
-    break;
+let maxShift = 0;
+
+for (let i = 0; i < n; i++) {
+  const shift = arr[i].idx - i;
+  if (shift > maxShift) {
+    maxShift = shift;
   }
 }
 
-console.log(i);
-
-//시간초과
+console.log(maxShift);
